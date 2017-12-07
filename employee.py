@@ -9,7 +9,6 @@
 ##########################################################################################################
 
 import pandas as pd
-from flask import Flask
 from flask_restful import Resource
 import json
 
@@ -46,7 +45,7 @@ class Employees(Resource):
 
         # converting the dataframe to json
         try:
-            data = best_filtered_employees.to_json(orient = 'records')
+            data = filtered_employees.to_json(orient = 'records')
             data_obj = json.loads(data)
             return data_obj[0]
         except Exception as e:
