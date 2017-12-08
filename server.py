@@ -18,4 +18,4 @@ api = Api(app)
 api.add_resource(Employees, '/employees') # Route_1
 
 if __name__ == '__main__':
-     app.run(port='5002')  # server running on port 5002
+     app.run()  # server running on port 5002
