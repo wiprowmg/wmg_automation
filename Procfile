@@ -1,1 +1,1 @@
-web: python server.py runserver os.environ["PORT"]
+web: python server.py runserver
