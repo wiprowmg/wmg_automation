@@ -1,1 +1,1 @@
-web: gunicorn wmg-automation.wsgi --log-file -
+web: gunicorn wmg_automation.wsgi --log-file -
