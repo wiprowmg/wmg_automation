@@ -15,6 +15,10 @@ from employee import Employees  # imports Employees class from employee file
 app = Flask(__name__)
 api = Api(app)
 
+@app.route('/')
+def index():
+    return '<h1>Deployed to Heroku</h1>'
+
 api.add_resource(Employees, '/employees') # Route_1
 
 if __name__ == '__main__':
