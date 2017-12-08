@@ -15,7 +15,6 @@ from employee import Employees  # imports Employees class from employee file
 
 app = Flask(__name__)
 api = Api(app)
-PORT = int(os.environ["PORT"])
 
 @app.route('/')
 def index():
@@ -25,4 +24,4 @@ api.add_resource(Employees, '/employees') # Route_1
 
 if __name__ == '__main__':
     print('Inside main')
-    app.run(PORT)  # server running on port 5002
+    app.run(port=os.getenv('PORT','8080'))  # server running on port 5002
