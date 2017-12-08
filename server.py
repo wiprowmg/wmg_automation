@@ -15,7 +15,7 @@ from employee import Employees  # imports Employees class from employee file
 
 app = Flask(__name__)
 api = Api(app)
-PORT = int(os.environ["PORT"]) || 5002
+PORT = int(os.environ["PORT"])
 
 @app.route('/')
 def index():
