@@ -24,4 +24,4 @@ api.add_resource(Employees, '/employees') # Route_1
 
 if __name__ == '__main__':
     print('Inside main')
-    app.run(debug=False, port=environ.get("PORT", 5002), host='0.0.0.0')  # server running on port 5002
+    app.run(debug=False, port=os.environ.get("PORT", 5002), host='0.0.0.0')  # server running on port 5002
