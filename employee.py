@@ -16,6 +16,7 @@ import json
 
 class Employees(Resource):
     def get(self):
+        print('inside employees - >')
         req = request.get_json(silent=True, force=True)
         print('Request : ')
         print(json.dumps(req, indent=4))
@@ -66,4 +67,5 @@ class Employees(Resource):
         response = json.dumps(res, indent = 4)
         r = make_response(res)
         r.headers['content-type'] = 'application/json'
+        print('r - > ',r)
         return r
