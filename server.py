@@ -20,7 +20,7 @@ api = Api(app)
 def index():
     return '<h1>Deployed to Heroku</h1>'
 
-api.add_resource(Employees, '/employees', methods=['GET']) # Route_1
+api.add_resource(Employees, '/employees', methods=['POST']) # Route_1
 
 if __name__ == '__main__':
     print('Inside main')
