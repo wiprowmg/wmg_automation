@@ -10,10 +10,14 @@
 
 import pandas as pd
 from flask_restful import Resource
+from flask import request
 import json
 
 class Employees(Resource):
     def get(self):
+        req = request.get_json(silent=True, force=True)
+        print('Request : ')
+        print(json.dumps(req, indent=4))
         # reading the par report excel file
         try:
             df = pd.read_excel('./data/PAR WMG.xlsx')
