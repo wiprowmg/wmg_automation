@@ -19,6 +19,7 @@ class Employees(Resource):
         print('inside employees - >')
         req = request.get_json(silent=True, force=True)
         print('Request : ')
+        print(req)
         print(json.dumps(req, indent=4))
         # reading the par report excel file
         try:
