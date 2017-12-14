@@ -64,17 +64,17 @@ def employees_search():
         try:
             data = filtered_employees.to_json(orient = 'records')
             data_obj = json.loads(data)
-            data_dumps = json.dumps(data[0], indent = 4)
-            print('filtered at - > ')
-            print(data_dumps)
             print('data name - > ',data_obj[0]['NAME'])
             # return data_obj[0]
         except Exception as e:
             print('Error in converting dataframe to json - > ', e)
 
+        name = data_obj[0]['NAME']
+        total_exp = data_obj[0]['TOTAL_EXP']
+        emp_email = data_obj[0]['EMP_EMAIL']
         res = {
-            'speech' : 'Hello, Its response from webhook',
-            'displayText' : 'Hello, Its response from webhook',
+            'speech' : 'The best match for your query is '+name+' with '+total_exp+' years of experience. Email id is '+emp_email,
+            'displayText' : 'The best match for your query is '+name+' with '+total_exp+' years of experience. Email id is '+emp_email,
             'source' : 'Indent Creation'
         }
 
