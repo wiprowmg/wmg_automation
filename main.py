@@ -30,10 +30,7 @@ def employees_search():
     if request.method == 'POST':
         print('inside employees - >')
         req = request.get_json(silent=True, force=True)
-        print('Request : ')
-        print(req)
-        print(req['result']['parameters'])
-        print(json.dumps(req, indent=4))
+        
         # reading the par report excel file
         try:
             df = pd.read_excel('./data/PAR WMG.xlsx')
@@ -42,9 +39,9 @@ def employees_search():
             print('error in reading excel - > ', e)
 
         # passing parameters for filtering employees from par report
-        skill_to_search = 'java'.upper()
-        grade_to_search = 'b2'.upper()
-        location_to_search = 'chennai'.upper()
+        skill_to_search = req['result']['parameters']['skills'].upper()
+        grade_to_search = req['result']['parameters']['grade'].upper()
+        location_to_search = req['result']['parameters']['location'].upper()
 
         # converting the values to uppercase for particular columns in excel dataframe
         skill = df['PROJECT_ACQUIRED_SKILL'].str.upper()
@@ -79,6 +76,7 @@ def employees_search():
         }
 
         response = json.dumps(res, indent = 4)
+        print('response - > ', response)
         r = make_response(res)
         r.headers['content-type'] = 'application/json'
         print('r - > ',r)
