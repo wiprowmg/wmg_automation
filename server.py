@@ -31,7 +31,8 @@ def employees_search():
         print('inside employees - >')
         req = request.get_json(silent=True, force=True)
         print('Request : ')
-        print(req.result.parameters)
+        print(req)
+        print(req['result'])
         print(json.dumps(req, indent=4))
         # reading the par report excel file
         try:
