@@ -64,7 +64,9 @@ def employees_search():
         try:
             data = filtered_employees.to_json(orient = 'records')
             data_obj = json.loads(data)
-            print('Result JSON has been sent :-)')
+            data_dumps = json.dumps(data, indent = 4)
+            print('filtered at - > ')
+            print(data_dumps)
             # return data_obj[0]
         except Exception as e:
             print('Error in converting dataframe to json - > ', e)
