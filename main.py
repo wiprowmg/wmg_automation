@@ -73,7 +73,7 @@ def employees_search():
         total_exp = data_obj[0]['TOTAL_EXP']
         emp_email = data_obj[0]['EMP_EMAIL']
         res = {
-            'speech' : 'The best match for your query is '+name+' with '+total_exp+' years of experience. Email id is '+emp_email,
+            'speech' : 'The best match for your query is '+name+' with '+total_exp+' of experience. Email id is '+emp_email,
             'displayText' : 'The best match for your query is '+name+' with '+total_exp+' years of experience. Email id is '+emp_email,
             'source' : 'Indent Creation'
         }
