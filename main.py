@@ -1,6 +1,6 @@
 ##########################################################################################################
 #                                                                                                        #
-# filename : server.py                                                                                   #
+# filename : main.py                                                                                   #
 # authors : Rubanraj R(Digital), Aswini K(Digital)                                                       #
 # language : Python3 (Flask Web Framework)                                                               #
 # description : This file is responsible for spinning up the web server of the application and           #
@@ -47,12 +47,14 @@ def employees_search():
         skill = df['PROJECT_ACQUIRED_SKILL'].str.upper()
         grade = df['GRADE'].str.upper()
         location = df['LOCATION'].str.upper()
+        status = df['STATUS']
 
         # performing dataframe operations to filter the employees
         try:
             filtered_employees = df[skill.str.contains(skill_to_search)
                                         & grade.str.contains(grade_to_search)
-                                        & location.str.contains(location_to_search)]
+                                        & location.str.contains(location_to_search)
+                                        & status.str.contains('AVAILABLE')]
             best_filtered_employees = filtered_employees[['EMPNO','NAME', 'EMP_EMAIL',
                                                           'GRADE', 'TOTAL_EXP', 'LOCATION',
                                                           'ONSITE_OFFSHORE', 'STATUS']].sort_values(['TOTAL_EXP'],
@@ -74,7 +76,7 @@ def employees_search():
         emp_email = data_obj[0]['EMP_EMAIL']
         res = {
             'speech' : 'The best match for your query is '+name+' with '+total_exp+' of experience. Email id is '+emp_email,
-            'displayText' : 'The best match for your query is '+name+' with '+total_exp+' years of experience. Email id is '+emp_email,
+            'displayText' : 'The best match for your query is '+name+' with '+total_exp+' of experience. Email id is '+emp_email,
             'source' : 'Indent Creation'
         }
 
