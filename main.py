@@ -30,7 +30,7 @@ def employees_search():
     if request.method == 'POST':
         print('inside employees - >')
         req = request.get_json(silent=True, force=True)
-        
+
         # reading the par report excel file
         try:
             df = pd.read_excel('./data/PAR WMG.xlsx')
@@ -77,7 +77,7 @@ def employees_search():
 
         response = json.dumps(res, indent = 4)
         print('response - > ', response)
-        r = make_response(res)
+        r = make_response(response)
         r.headers['content-type'] = 'application/json'
         print('r - > ',r)
         return r
