@@ -26,7 +26,7 @@ def index():
     return '<h1>Deployed to Heroku</h1>'
 
 @app.route('/employees', methods=['GET', 'POST'])
-def index():
+def employees_search():
     if request.method == 'POST':
         print('inside employees - >')
         req = request.get_json(silent=True, force=True)
