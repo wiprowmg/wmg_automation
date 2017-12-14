@@ -19,8 +19,10 @@ api = Api(app)
 @app.route('/')
 def index():
     return '<h1>Deployed to Heroku</h1>'
-
-api.add_resource(Employees, '/employees', methods=['POST']) # Route_1
+try:
+    api.add_resource(Employees, '/employees', methods=['POST']) # Route_1
+except Exception as e:
+    print('Error in implementing route - > ', e) 
 
 if __name__ == '__main__':
     print('Inside main')
